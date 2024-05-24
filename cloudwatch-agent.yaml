@@ -83,11 +83,16 @@ data:
         "metrics_collected": {
           "disk": {
             "measurement": [
-              "used_percent"
+              "used_percent",
+              "total",
+              "used"
+            ],
+            "ignore_file_system_types": [
+              "sysfs", "devtmpfs"
             ],
             "metrics_collection_interval": 60,
             "resources": [
-              "/"
+              "/*"
             ]
           }
         }
