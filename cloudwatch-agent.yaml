@@ -66,7 +66,7 @@ data:
   # Configuration is in Json format. No matter what configure change you make,
   # please keep the Json blob valid.
  cwagentconfig.json: |
-{
+    {
       "agent": {
         "region": "{{region_name}}"
       },
