@@ -92,7 +92,8 @@ data:
             ],
             "metrics_collection_interval": 60,
             "resources": [
-              "/*"
+              "/*",
+              "/var/lib/kubelet/pods/a6d62d2b-a801-46a8-9967-ecb08d1f0b24/volumes/kubernetes.io~csi/pvc-4fd381b1-a7b7-45be-ae55-6fadd6e6db6e/mount"
             ]
           }
         }
