@@ -70,30 +70,38 @@ data:
       "agent": {
         "region": "{{region_name}}"
       },
-      "logs": {
-        "metrics_collected": {
-          "kubernetes": {
-            "cluster_name": "{{cluster_name}}",
-            "metrics_collection_interval": 60
-          }
-        },
-        "force_flush_interval": 5
-      },
       "metrics": {
         "metrics_collected": {
           "disk": {
             "measurement": [
-              "used_percent",
-              "total",
-              "used"
+              "used_percent"
+            ],
+            "resources": [
+              "/",
+              "/var/lib/kubelet/pods/34dd30e4-630f-47d2-801c-284dca75dcdd/volumes/kubernetes.io~csi/pvc-0d1d0fdd-2b54-4faa-9aff-3393168f9c8f/mount"
             ],
             "ignore_file_system_types": [
-              "sysfs", "devtmpfs"
+              "sysfs", "devtmpfs", "tmpfs"
             ],
+            "drop_device": true
+          },
+          "kubernetes": {
+            "cluster_name": "{{cluster_name}}",
             "metrics_collection_interval": 60,
-            "resources": [
-              "/*",
-              "/var/lib/kubelet/pods/a6d62d2b-a801-46a8-9967-ecb08d1f0b24/volumes/kubernetes.io~csi/pvc-4fd381b1-a7b7-45be-ae55-6fadd6e6db6e/mount"
+            "enhanced_container_insights": true
+          }
+        },
+        "force_flush_interval": 5
+      },
+      "logs": {
+        "logs_collected": {
+          "files": {
+            "collect_list": [
+              {
+                "file_path": "/var/log/messages",
+                "log_group_name": "/aws/eks/{{cluster_name}}/log-group",
+                "log_stream_name": "{instance_id}"
+              }
             ]
           }
         }
