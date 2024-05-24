@@ -66,7 +66,7 @@ data:
   # Configuration is in Json format. No matter what configure change you make,
   # please keep the Json blob valid.
  cwagentconfig.json: |
-    {
+{
       "agent": {
         "region": "{{region_name}}"
       },
@@ -77,8 +77,7 @@ data:
               {"name": "disk_used_percent", "rename": "DiskUsedPercent"}
             ],
             "resources": [
-              "/",
-              "/var/lib/kubelet/pods/a982e698-b790-479b-a300-36b1435005df/volumes/kubernetes.io~csi/pvc-3830203b-26a2-45eb-9790-e3e759f910b7/mount"
+              "/*"
             ],
             "ignore_file_system_types": [
               "sysfs", "devtmpfs", "tmpfs"
@@ -86,7 +85,8 @@ data:
           },
           "kubernetes": {
             "cluster_name": "{{cluster_name}}",
-            "metrics_collection_interval": 60
+            "metrics_collection_interval": 60,
+            "enhanced_container_insights": true
           }
         },
         "force_flush_interval": 5
